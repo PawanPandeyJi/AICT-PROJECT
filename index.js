@@ -1,16 +1,12 @@
-const express = require('express')
+import express from 'express'
+import healthRouter from './routers/health.router.js'
 
 const app = express()
 
-app.get('/', (req,res) => {
-    res.send("Hello World!")
-})
+app.use(healthRouter)
 
-app.get('/health', (req,res) => {
-    res.send("Everything is all right!!")
-})
 
-const PORT = 8080
+const PORT = 8000
 
 app.listen(PORT, () => {
     console.log(`Your server is runnig on port ${PORT}`)
